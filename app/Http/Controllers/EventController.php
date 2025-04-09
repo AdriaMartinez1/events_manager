@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Event;
+use App\Models\Category;
 
 class EventController extends Controller
 {
@@ -11,7 +13,10 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        $events = Event::all();
+        return view('events.indexevent',['events' => $events]);
+
     }
 
     /**
@@ -19,8 +24,11 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        
+        return view('events.createevent', ['categories' => $categories]);
     }
+
 
     /**
      * Store a newly created resource in storage.

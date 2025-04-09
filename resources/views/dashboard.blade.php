@@ -10,6 +10,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
+                    <a href="{{route('events.index')}}">llistat event</a>
+                    <a href="{{route('categories.index')}}">Llistat categoria</a>
+
+ 
                 </div>
             </div>
         </div>

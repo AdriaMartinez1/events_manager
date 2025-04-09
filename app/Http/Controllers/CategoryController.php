@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+
+
 class CategoryController extends Controller
 {
     /**
@@ -12,7 +14,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('index', ['categories' => $categories]);
+        return view('categories.indexcategory', ['categories' => $categories]);
 
     }
 
@@ -21,7 +23,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('categories.createcategory');
     }
 
     /**
