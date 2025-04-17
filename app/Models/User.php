@@ -52,4 +52,8 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Models\Event');
     }
 
+    public function is_admin()
+    {
+        return $this->is_admin;
+    }
 }

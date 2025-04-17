@@ -9,11 +9,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                    <a href="{{route('events.index')}}">llistat event</a>
+                    <a href="{{route('events.index')}}">Llistat event</a>
                     <a href="{{route('categories.index')}}">Llistat categoria</a>
-
- 
+                    <a href="{{route('users.index')}}">Llistat d'usuaris</a>
                 </div>
             </div>
         </div>

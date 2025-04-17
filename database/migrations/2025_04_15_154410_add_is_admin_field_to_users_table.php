@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('events', function (Blueprint $table) {
-            $table->id();
-            $table->String('name');
-            $table->date('date');
-            $table->string('description');
-            $table->unsignedBigInteger('category_id')->index();
-            $table->timestamps();
-
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('is_admin')->nullable();
+            //
         });
     }
 
@@ -27,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('events');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

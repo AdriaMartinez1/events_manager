@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\Category;
-
+use Illuminate\Support\Facades\Gate;
 class EventController extends Controller
 {
     /**
@@ -24,9 +24,13 @@ class EventController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        if (Gate::allows('access-admin')) {
+            $categories = Category::all();
         
         return view('events.createevent', ['categories' => $categories]);
+        }
+        abort(403, 'Unauthorized!');
+        
     }
 
 
@@ -35,7 +39,23 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'date'=>'required',
+            'description'=>'required',
+            'category_id'=>'required'
+        ]); 
+       //dd($request->all());
+       //$category = Category::where('name',$request->category_id );
+       //table('categories')->where('name')->value('$request->category_id');
+       //Event::create($request->all());
+       Event::create([
+            'name'=>$request->name,
+            'date'=>$request->date,
+            'description'=>$request->description,
+            'category_id'=>$request->category_id
+       ]);
+        return redirect()->route('events.index')->with('success','nueva tarea creada exitosamente');
     }
 
     /**

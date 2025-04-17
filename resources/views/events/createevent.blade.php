@@ -7,39 +7,40 @@
             <h2>Crear Event</h2>
         </div>
         <div>
-            <a href="{{route('categories.index')}}" class="btn btn-primary">Tornar</a>
+            <a href="{{route('events.index')}}" class="btn btn-primary">Tornar</a>
         </div>
     </div>
 
-    <form action="" method="POST">
+    <form action="{{route('events.store')}}" method="POST">
+    @csrf
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                 <div class="form-group">
-                    <strong>Tarea:</strong>
-                    <input type="text" name="title" class="form-control" placeholder="Tarea" >
+                    <strong>Nom del event:</strong>
+                    <input type="text" name="name" class="form-control" placeholder="Event" >
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                 <div class="form-group">
-                    <strong>Descripción:</strong>
-                    <textarea class="form-control" style="height:150px" name="description" placeholder="Descripción..."></textarea>
+                    <strong>Descripcio:</strong>
+                    <textarea class="form-control" style="height:150px" name="description" placeholder="Descripcio..."></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 mt-2">
                 <div class="form-group">
-                    <strong>Fecha límite:</strong>
-                    <input type="date" name="due_date" class="form-control" id="">
+                    <strong>Data event:</strong>
+                    <input type="date" name="date" class="form-control" id="">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 mt-2">
                 <div class="form-group">
-                    <strong>Estado (inicial):</strong>
-                    <select name="status" class="form-select" id="">
-                    <option value="">-- Elige el status --</option>
+                    <strong>Categories</strong>
+                    <select name="category_id" class="form-select" id="">
+                    <option value="">-- Escull categoria --</option>
 
                     @foreach ($categories as $category)
 
-                        <option value="{{$category->name}}">{{$category->name}}</option>
+                        <option value="{{$category->id}}">{{$category->name}}</option>
 
                         @endforeach
                     </select>

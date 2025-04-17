@@ -4,10 +4,10 @@
 <div class="row">
     <div class="col-12">
         <div>
-            <h2 class="text-white">Gestió de Events</h2>
+            <h2 class="text-white">Gestió d'usuaris</h2>
         </div>
         <div>
-            <a href="{{route('events.create')}}" class="btn btn-primary">Crear event</a>
+            <a href="{{route('users.create')}}" class="btn btn-primary">Crear usuari</a>
         </div>
     </div>
 
@@ -15,17 +15,11 @@
         <table class="table table-bordered text-white">
             <tr class="text-secondary">
                 <th>Event</th>
-                <th>Data</th>
-                <th>Descripcio</th>
-                <th>Categoria</th>
                 <th>Acció</th>
             </tr>
-            @foreach ($events as $event)
+            @foreach ($users as $user)
             <tr>
-                <td class="fw-bold">{{$event->name}}</td>
-                <td class="fw-bold">{{$event->date}}</td>
-                <td class="fw-bold">{{$event->description}}</td>
-                <td class="fw-bold">{{$event->category->name}}</td>
+                <td class="fw-bold">{{$user->name}}</td>
                 <td>
                     <a href="" class="btn btn-warning">Editar</a>
 

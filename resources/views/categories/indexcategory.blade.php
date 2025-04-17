@@ -21,9 +21,11 @@
             <tr>
                 <td class="fw-bold">{{$category ->name}}</td>
                 <td>
-                    <a href="" class="btn btn-warning">Editar</a>
+                    <a href="{{route('categories.edit',$category)}}" class="btn btn-warning">Editar</a>
 
-                    <form action="" method="post" class="d-inline">
+                    <form action="{{route('categories.destroy', $category)}}" method="post" class="d-inline">
+                    @csrf
+                    @method('DELETE')
                         <button type="submit" class="btn btn-danger">Eliminar</button>
                     </form>
                 </td>

@@ -9,8 +9,8 @@ class Event extends Model
     protected $fillable = [
         'name',
         'date',
-        'description'
-        
+        'description',
+        'category_id'
     ];
     public function category()
     {
