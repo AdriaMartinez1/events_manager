@@ -14,16 +14,18 @@
     <div class="col-12 mt-4">
         <table class="table table-bordered text-white">
             <tr class="text-secondary">
-                <th>Event</th>
+                <th>Nom usuari</th>
                 <th>Acció</th>
             </tr>
             @foreach ($users as $user)
             <tr>
                 <td class="fw-bold">{{$user->name}}</td>
                 <td>
-                    <a href="" class="btn btn-warning">Editar</a>
+                    <a href="{{route('users.edit',$user)}}" class="btn btn-warning">Editar</a>
 
-                    <form action="" method="post" class="d-inline">
+                    <form action="{{route('users.destroy', $user)}}" method="post" class="d-inline">
+                    @csrf
+                    @method('DELETE')
                         <button type="submit" class="btn btn-danger">Eliminar</button>
                     </form>
                 </td>
