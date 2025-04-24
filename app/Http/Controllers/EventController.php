@@ -72,15 +72,24 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        
+        $categories = Category::all();
+        return view('events.editevent',['event'=>$event, 'categories' => $categories  ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Event $event)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'date'=>'required',
+            'description'=>'required',
+            'category_id'=>'required'
+            
+        ]);
+        $event->update($request->all());
+        return redirect()->route('events.index')->with('success','nou usuari actualitzat correctament');
     }
 
     /**

@@ -27,7 +27,7 @@
                 <td class="fw-bold">{{$event->description}}</td>
                 <td class="fw-bold">{{$event->category->name}}</td>
                 <td>
-                    <a href="" class="btn btn-warning">Editar</a>
+                    <a href="{{route('events.edit', $event)}}" class="btn btn-warning">Editar</a>
 
                     <form action="{{route('events.destroy', $event)}}" method="post" class="d-inline">
                     @csrf
