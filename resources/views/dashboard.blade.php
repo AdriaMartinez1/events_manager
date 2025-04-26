@@ -9,9 +9,13 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <a href="{{route('events.index')}}">Llistat event</a>
-                    <a href="{{route('categories.index')}}">Llistat categoria</a>
-                    <a href="{{route('users.index')}}">Llistat d'usuaris</a>
+                    @if(Auth::user()->is_admin)
+                    <a href="{{route('events.index')}}">Gestió d'events</a>
+                    <a href="{{route('categories.index')}}">Gestió de  categories</a>
+                    <a href="{{route('users.index')}}">Gestió d'usuaris</a>
+                    @else
+                    <a href="{{route('events.index')}}">Inscripció a events</a>
+                    @endif
                 </div>
             </div>
         </div>

@@ -7,9 +7,27 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-    <title>CRUD laravel 10</title>
+    <title>Gestio d'events</title>
 </head>
-<body class="bg-dark text-white">
+<body class="bg-white text-black">
+<div class="d-flex justify-content-between w-100 gap-2">
+    @if(Auth::user()->is_admin)
+        <a href="{{ route('events.index') }}" class="btn btn-primary flex-fill text-center">
+            Gestió d'events
+        </a>
+        <a href="{{ route('categories.index') }}" class="btn btn-primary flex-fill text-center">
+            Gestió de categories
+        </a>
+        <a href="{{ route('users.index') }}" class="btn btn-primary flex-fill text-center">
+            Gestió d'usuaris
+        </a>
+    @else
+        <a href="{{ route('events.index') }}" class="btn btn-success flex-fill text-center">
+            Inscripció a events
+        </a>
+    @endif
+</div>
+
     <div class="container">
         @yield('content')
     </div>

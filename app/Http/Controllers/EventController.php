@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 class EventController extends Controller
 {
     /**
@@ -14,10 +15,15 @@ class EventController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        if(Auth::check()){
+        $user = Auth::user();
+        //dd($user);
+        //$categories = Category::all();
         $events = Event::all();
-        return view('events.indexevent',['events' => $events]);
-
+        return view('events.indexevent',['events' => $events, 'user' => $user]);
+        }else{
+            abort(403,'No autoritzat');
+        }
     }
 
     /**
@@ -100,4 +106,12 @@ class EventController extends Controller
         $event->delete();
         return redirect()->route('events.index')->with('success','nou event actualitzat');
     }
+
+    public function register(Event $event,User $user)
+    {
+        dd($event);
+    }
+
+
+
 }

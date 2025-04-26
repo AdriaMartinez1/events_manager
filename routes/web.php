@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RegisterController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,6 +20,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::resource('users',UserController::class);
+Route::post('/register/{event}/{user}',  [RegisterController::class,'addRegistry'] )->name('register.addRegistry');
+Route::post('/unregister/{event}/{user}',  [RegisterController::class,'removeRegistry'] )->name('unregister.removeRegistry');
 Route::resource('events',EventController::class);
 Route::resource('categories',CategoryController::class);
 require __DIR__.'/auth.php';

@@ -24,7 +24,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
                 <div class="form-group">
                     <strong>Descripcio:</strong>
-                    <textarea class="form-control" style="height:150px" name="description" placeholder="Descripcio..." value="{{$event->description}}"></textarea>
+                    <textarea class="form-control" style="height:150px" name="description" placeholder="Descripcio..." >{{$event->description}}</textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 mt-2">
@@ -41,7 +41,7 @@
 
                     @foreach ($categories as $category)
 
-                        <option value="{{$category->id}}">{{$category->name}}</option>
+                        <option value="{{$category->id}}" {{$category->id ==$event->category_id ? 'selected' : ''}}>{{$category->name}}</option>
 
                         @endforeach
                     </select>

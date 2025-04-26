@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-12">
         <div>
-            <h2 class="text-white">Gestió d'usuaris</h2>
+            <h2 class="text-black">Gestió d'usuaris</h2>
         </div>
         <div>
             <a href="{{route('users.create')}}" class="btn btn-primary">Crear usuari</a>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="col-12 mt-4">
-        <table class="table table-bordered text-white">
+        <table class="table table-bordered text-black">
             <tr class="text-secondary">
                 <th>Nom usuari</th>
                 <th>Acció</th>

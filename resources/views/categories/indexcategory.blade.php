@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-12">
         <div>
-            <h2 class="text-white">Gestió de Categories</h2>
+            <h2 class="text-black">Gestió de Categories</h2>
         </div>
         <div>
             <a href="{{route('categories.create')}}" class="btn btn-primary">Crear categoria</a>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="col-12 mt-4">
-        <table class="table table-bordered text-white">
+        <table class="table table-bordered text-black">
             <tr class="text-secondary">
                 <th>Categoria</th>
                 <th>Acció</th>

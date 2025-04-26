@@ -37,10 +37,10 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12 mt-2">
+            <div >
                 <div class="form-group">
                     <strong>Es administrador?:</strong>
-                    <input type="boolean" name="is_admin" class="form-control" placeholder="true o false" value="{{$user->is_admin}}">
+                    <input type="checkbox" name="is_admin" {{$user->is_admin ? 'checked' : ''}}>
                 </div>
             </div>
             

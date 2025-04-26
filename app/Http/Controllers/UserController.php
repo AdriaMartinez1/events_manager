@@ -5,6 +5,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Gate;
 class UserController extends Controller
 {
     /**
@@ -12,8 +13,11 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (Gate::allows('access-admin')) {
         $users = User::all();
         return view('users.indexuser', ['users' => $users]);
+        }
+        abort(403, 'Unauthorized!');
     }
 
     /**
@@ -35,6 +39,7 @@ class UserController extends Controller
             'password'=>'required',
             'is_admin'=>'required'
         ]);
+        $request->is_admin = $request->has('is_admin') ? true : false;
         User::create($request->all());
         return redirect()->route('users.index')->with('success','nou usuari creat');
     }
@@ -67,6 +72,7 @@ class UserController extends Controller
             'is_admin'=>'required'
             
         ]);
+        $user->is_admin = $request->has('is_admin') ? true : false;
         $user->update($request->all());
         return redirect()->route('users.index')->with('success','nou usuari actualitzat correctament');
     }
