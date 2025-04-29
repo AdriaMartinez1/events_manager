@@ -68,8 +68,8 @@ class UserController extends Controller
         $request->validate([
             'name'=>'required',
             'email'=>'required',
-            'password'=>'required',
-            'is_admin'=>'required'
+            'password'=>'required'
+            //'is_admin'=>'required'
             
         ]);
         $user->is_admin = $request->has('is_admin') ? true : false;

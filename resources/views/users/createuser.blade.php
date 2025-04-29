@@ -39,7 +39,8 @@
             <div >
                 <div class="form-group">
                     <strong>Es administrador?:</strong>
-                    <input type="checkbox" name="is_admin" >
+                    <input type="hidden" name="is_admin" value="0">
+                    <input type="checkbox" name="is_admin" value="1">
                 </div>
             </div>
             
