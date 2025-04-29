@@ -36,11 +36,20 @@ class UserController extends Controller
         $request->validate([
             'name'=>'required',
             'email'=>'required',
-            'password'=>'required',
-            'is_admin'=>'required'
+            'password'=>'required'
+            //'is_admin'=>'required'
         ]);
-        $request->is_admin = $request->has('is_admin') ? true : false;
-        User::create($request->all());
+        
+        //$request->is_admin = $request->has('is_admin') ? true : false;
+        //User::create($request->all());
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password, 
+            'is_admin' => $request->has('is_admin') ? true : false,  
+        ];
+    
+        User::create($data);
         return redirect()->route('users.index')->with('success','nou usuari creat');
     }
 
@@ -68,7 +77,7 @@ class UserController extends Controller
         $request->validate([
             'name'=>'required',
             'email'=>'required',
-            'password'=>'required'
+            'password'=>'required',
             //'is_admin'=>'required'
             
         ]);

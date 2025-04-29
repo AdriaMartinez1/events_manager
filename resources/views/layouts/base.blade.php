@@ -27,7 +27,18 @@
         </a>
     @endif
 </div>
+<div class="d-flex justify-content-between w-100 gap-2 mt-3">
+    <a href="{{ route('dashboard') }}" class="btn btn-secondary flex-fill text-center">
+        Dashboard
+    </a>
 
+    <form action="{{ route('logout') }}" method="POST" class="flex-fill text-center">
+        @csrf
+        <button type="submit" class="btn btn-danger w-100">
+            Logout
+        </button>
+    </form>
+</div>
     <div class="container">
         @yield('content')
     </div>

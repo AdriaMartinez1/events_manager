@@ -39,11 +39,24 @@
             <div >
                 <div class="form-group">
                     <strong>Es administrador?:</strong>
-                    <input type="hidden" name="is_admin" value="0">
-                    <input type="checkbox" name="is_admin" value="1">
+                    <input type="checkbox" name="is_admin" >
                 </div>
             </div>
             
+
+
+
+<!-- 
+            <div >
+            <select name="is_admin" class="form-select" id="is_admin">
+                    <option value="">-- Escull una opció --</option>
+                        <option value=1>Administrador</option>
+                        <option value=0>Usuari</option>
+                    </select>
+                    </div>
+
+ -->
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-2">
                 <button type="submit" class="btn btn-primary">Crear</button>
             </div>
