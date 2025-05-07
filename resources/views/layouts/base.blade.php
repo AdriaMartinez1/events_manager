@@ -21,10 +21,7 @@
         <a href="{{ route('users.index') }}" class="btn btn-primary flex-fill text-center">
             Gestió d'usuaris
         </a>
-    @else
-        <a href="{{ route('events.index') }}" class="btn btn-success flex-fill text-center">
-            Inscripció a events
-        </a>
+    
     @endif
 </div>
 <div class="d-flex justify-content-between w-100 gap-2 mt-3">

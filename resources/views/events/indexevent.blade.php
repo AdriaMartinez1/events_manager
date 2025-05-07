@@ -20,6 +20,7 @@
                 <th>Data</th>
                 <th>Descripcio</th>
                 <th>Categoria</th>
+                <th>Usuaris inscrits</th>
                 <th>Acció</th>
             </tr>
             @foreach ($events as $event)
@@ -28,6 +29,11 @@
                 <td class="fw-bold">{{$event->date}}</td>
                 <td class="fw-bold">{{$event->description}}</td>
                 <td class="fw-bold">{{$event->category->name}}</td>
+                <td class="fw-bold">
+                @foreach ($event->users as $usr)
+                {{$usr->name}}
+                @endforeach
+                </td>
                 <td>
                 @if($user->is_admin)
                     <a href="{{route('events.edit', $event)}}" class="btn btn-warning">Editar</a>
